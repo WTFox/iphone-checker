@@ -1,10 +1,6 @@
 import requests
 
 
-# TODO Add Click CLI
-# TODO Upload to pip
-# TODO Add notify options
-
 # Carrier
 VALID_CARRIERS = [
     'TMOBILE',
@@ -13,11 +9,6 @@ VALID_CARRIERS = [
     'VERIZON'
 ]
 
-# Where to search
-ZIPCODES = [
-    '92620',
-    '92691',
-]
 
 # What are we looking for?
 DEVICES = {
@@ -31,14 +22,13 @@ DEVICES = {
 # Base URL
 URL = 'https://www.apple.com/shop/retail/pickup-message'
 PICKUP_AVAILABLE = 'available'
-CARRIER = 'TMOBILE'
 
 
-def search_stores_in_zipcode(zipcode, device):
+def search_stores_in_zipcode(carrier, zipcode, device):
     stores_with_device = []
     response = requests.get(URL, params={
         'pl': True,
-        'cppart': CARRIER,
+        'cppart': carrier,
         'location': zipcode,
         'parts.0': device
     })
@@ -57,31 +47,23 @@ def store_has_device(store, device):
 
 def format_store_display(store):
     device_name = store.get('partsAvailability', {}).values()[0].get('storePickupProductTitle')
-    return '{} ({}) has the {} in stock.\nCheck the url here:\n{}\n\nor call them @ {}'.format(
-        store.get('storeName'),
-        store.get('storeDistanceVoText'),
-        device_name,
-        store.get('reservationUrl'),
-        store.get('phoneNumber')
+    return '{product}\t{store}\t{url}'.format(
+        product=device_name,
+        store=store.get('storeName'),
+        url=store.get('reservationUrl'),
+        phone_number=store.get('phoneNumber')
     )
 
 
-def main():
-    assert CARRIER in VALID_CARRIERS
+def check_availability(carrier, zipcode):
+    assert carrier in VALID_CARRIERS
 
     total_results = []
-    for zipcode in ZIPCODES:
-        for name, device in DEVICES.items():
-            total_results.extend(search_stores_in_zipcode(zipcode, device))
+    for name, device in DEVICES.items():
+        total_results.extend(search_stores_in_zipcode(carrier, zipcode, device))
 
-    if not total_results:
-        print("No stores near {} have stock. :(".format(
-            ', '.join(ZIPCODES),
-        ))
-    
-    for store in set(total_results):
-        print(format_store_display(store))
+    return total_results
 
 
 if __name__ == '__main__':
-    main()
+    pass
