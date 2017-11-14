@@ -25,13 +25,6 @@ PART_NUMBERS = {
     }
 }
 
-VALID_CARRIERS = [
-    'TMOBILE',
-    'ATT',
-    'SPRINT',
-    'VERIZON'
-]
-
 
 if __name__ == '__main__':
     pass

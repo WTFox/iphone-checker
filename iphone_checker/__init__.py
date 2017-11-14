@@ -4,3 +4,4 @@ __author__ = 'Anthony Fox'
 
 
 from .api import check_x
+from .iphone_checker import check_availability
