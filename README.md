@@ -10,7 +10,6 @@ Just download or clone this project, `cd` into the dir then run
 ``` bash 
 
     python setup.py install
-   
 ```
 
 or 
@@ -18,7 +17,6 @@ or
 ``` bash
 
     pip install .
-
 ```
 
 ## Usage
@@ -31,7 +29,6 @@ Options:
   -c, --carrier TEXT  Which carrier do you need?
   -z, --zipcode TEXT  What zipcode to search in?
   --help              Show this message and exit.
-
 ```
 
 ## TODO
