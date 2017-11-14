@@ -1,23 +1,8 @@
 import requests
 
 
-# Carrier
-VALID_CARRIERS = [
-    'TMOBILE',
-    'ATT',
-    'SPRINT',
-    'VERIZON'
-]
+from .utils import PART_NUMBERS, VALID_CARRIERS
 
-
-# What are we looking for?
-DEVICES = {
-    # readable name,  parts.0
-    '64GB Space Grey': 'MQAQ2LL/A',
-    '256GB Space Grey': 'MQAU2LL/A',
-    '64GB Silver': 'MQAR2LL/A',
-    '256GB Silver': 'MQAV2LL/A',
-}
 
 # Base URL
 URL = 'https://www.apple.com/shop/retail/pickup-message'
@@ -59,7 +44,7 @@ def check_availability(carrier, zipcode):
     assert carrier in VALID_CARRIERS
 
     total_results = []
-    for name, device in DEVICES.items():
+    for device in PART_NUMBERS[carrier].values():
         total_results.extend(search_stores_in_zipcode(carrier, zipcode, device))
 
     return total_results

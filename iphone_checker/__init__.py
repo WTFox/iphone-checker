@@ -3,4 +3,4 @@ __version__ = '0.1'
 __author__ = 'Anthony Fox'
 
 
-from .api import checkx
+from .api import check_x

@@ -2,14 +2,17 @@ import sys
 
 import click
 
-from .iphone_checker import check_availability, format_store_display, VALID_CARRIERS
+from .iphone_checker import check_availability, format_store_display
+from .utils import VALID_CARRIERS
 
 
 @click.command()
 @click.option('--carrier', '-c', default='TMOBILE', help='Which carrier do you need?')
 @click.option('--zipcode', '-z', help='What zipcode to search in?')
-def checkx(carrier, zipcode):
+def check_x(carrier, zipcode):
+    carrier = carrier.upper()
     assert carrier in VALID_CARRIERS
+
     if not zipcode:
         click.secho("Please provide a valid zipcode", fg="red")
         sys.exit(1)
@@ -27,4 +30,4 @@ def checkx(carrier, zipcode):
 
 
 if __name__ == '__main__':
-    checkx()
+    check_x()

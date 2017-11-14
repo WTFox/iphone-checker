@@ -15,6 +15,6 @@ setup(
     ],
     entry_points='''
         [console_scripts]
-        checkx=iphone_checker:checkx
+        checkx=iphone_checker:check_x
     ''',
 )
