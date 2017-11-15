@@ -1,0 +1,10 @@
+CHANGES
+=======
+
+* Improve README and setup.py
+* Fix readme
+* Add support for multiple carriers
+* Add .gitignore
+* Implements click
+* Cleanup API
+* Initial commit
