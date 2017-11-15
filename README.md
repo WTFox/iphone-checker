@@ -5,18 +5,20 @@ This installs a CLI `checkx` that will check nearby apple stores for locations t
 
 ## Installation
 
-Just download or clone this project, `cd` into the dir then run
+``` bash
+$ pip install iphone-checker
+```
+
+or Just download or clone this project, `cd` into the dir then run
 
 ``` bash 
-
-    python setup.py install
+$ python setup.py install
 ```
 
 or 
 
 ``` bash
-
-    pip install .
+$ pip install .
 ```
 
 ## Usage
