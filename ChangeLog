@@ -1,6 +1,8 @@
 CHANGES
 =======
 
+* Fix list
+* Upload to PYPI
 * Add requirements.txt
 * Update README
 * Add authors and changelog

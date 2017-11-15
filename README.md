@@ -1,5 +1,5 @@
 
-# iPhone X Stock Chcker
+# iPhone X Stock Checker
 
 This installs a CLI `checkx` that will check nearby apple stores for locations that have the iPhoneX instock.
 

@@ -42,7 +42,7 @@ def store_has_device(store, device):
 
 
 def format_store_display(store):
-    device_name = store.get('partsAvailability', {}).values()[0].get('storePickupProductTitle')
+    device_name = list(store.get('partsAvailability', {}).values())[0].get('storePickupProductTitle')
     return '{product}\t{store}\t{phone_number}\t{url}'.format(
         product=device_name,
         store=store.get('storeName'),
