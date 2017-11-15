@@ -3,6 +3,8 @@
 
 This installs a CLI `checkx` that will check nearby apple stores for locations that have the iPhoneX instock.
 
+![Imgur](https://i.imgur.com/D1BBOsc.gifv)
+
 ## Installation
 
 ``` bash
